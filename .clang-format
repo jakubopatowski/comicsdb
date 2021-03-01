@@ -1,0 +1,13 @@
+﻿---
+BasedOnStyle: LLVM
+IndentWidth: '4'
+PointerAlignment: Left
+SpacesInAngles: true
+SpacesInCStyleCastParentheses: true
+SpacesInConditionalStatement: true
+SpacesInContainerLiterals: true
+SpacesInParentheses: true
+SpacesInSquareBrackets: true
+SpacesInAngles: true
+AlwaysBreakTemplateDeclarations: Yes
+...
