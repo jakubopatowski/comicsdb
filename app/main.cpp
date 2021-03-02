@@ -1,27 +1,28 @@
+#include "Sqlite3Manager.hpp"
 #include <iostream>
+#include <memory>
 #include <sqlite3.h>
 #include <string>
 #include <vector>
-#include <memory>
-#include "Sqlite3Manager.hpp"
-
 using namespace std;
 
 static int callback( void* NotUsed, int argc, char** argv, char** azColName ) {
     for ( int i = 0; i < argc; ++i ) {
-        cout << azColName[ i ] << " = " << ( argv[ i ] ? argv[ i ] : "NULL" )
+        std::cout << azColName[ i ] << " = " << ( argv[ i ] ? argv[ i ] : "NULL" )
              << endl;
     }
     return 0;
 }
 
 int main( int argc, char* argv[] ) {
-    Sqlite3Manager manager;
-    manager.connection("comics.db");
-    manager.execute("CREATE TABLE t(x INTEGER PRIMARY KEY ASC, y, z);");
+    Sqlite3Manager manager(
+        []( const std::string entry ) { std::cout << entry << '\n'; } );
     
+    manager.connection( "comics.db" );
+    manager.execute( "CREATE TABLE t(x INTEGER PRIMARY KEY ASC, y, z);" );
+
     for ( int i = 0; i < argc; ++i ) {
-        cout << argv[ i ] << endl;
+        std::cout << argv[ i ] << endl;
     }
 
     sqlite3* db;

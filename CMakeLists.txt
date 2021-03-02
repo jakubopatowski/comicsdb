@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(projekt)
+project(ComicsDB)
 
 add_executable(main)
 
@@ -48,6 +48,8 @@ target_sources(main
   "./app/IDatabaseManager.hpp"
   "./app/Sqlite3Manager.hpp"
   "./app/Sqlite3Manager.cpp"
+  "./app/Sqlite3ErrorCodes.hpp"
+  "./app/Sqlite3ErrorCodes.cpp"
   )
 
 # Tests

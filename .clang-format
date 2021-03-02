@@ -1,6 +1,19 @@
 ﻿---
 BasedOnStyle: LLVM
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterCaseLabel: false
+    AfterClass: true
+    AfterEnum: false
+    AfterStruct: false
+    AfterNamespace: false
+    BeforeCatch: true
+    BeforeElse: true
+    BeforeWhile: true
+    SplitEmptyFunction: false
+ColumnLimit: 120
 IndentWidth: '4'
+IndentAccessModifiers: false
 PointerAlignment: Left
 SpacesInAngles: true
 SpacesInCStyleCastParentheses: true
@@ -10,4 +23,5 @@ SpacesInParentheses: true
 SpacesInSquareBrackets: true
 SpacesInAngles: true
 AlwaysBreakTemplateDeclarations: Yes
+AllowShortIfStatementsOnASingleLine: Never
 ...
