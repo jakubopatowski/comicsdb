@@ -3,7 +3,7 @@ BasedOnStyle: LLVM
 BreakBeforeBraces: Custom
 BraceWrapping:
     AfterCaseLabel: false
-    AfterClass: true
+    AfterClass: false
     AfterEnum: false
     AfterStruct: false
     AfterNamespace: false
@@ -13,7 +13,6 @@ BraceWrapping:
     SplitEmptyFunction: false
 ColumnLimit: 120
 IndentWidth: '4'
-IndentAccessModifiers: false
 PointerAlignment: Left
 SpacesInAngles: true
 SpacesInCStyleCastParentheses: true
@@ -24,4 +23,8 @@ SpacesInSquareBrackets: true
 SpacesInAngles: true
 AlwaysBreakTemplateDeclarations: Yes
 AllowShortIfStatementsOnASingleLine: Never
+IndentCaseBlocks: true
+IndentCaseLabels: false
+AccessModifierOffset: '-4'
+AllowShortCaseLabelsOnASingleLine: true
 ...

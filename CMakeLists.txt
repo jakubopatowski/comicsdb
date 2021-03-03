@@ -68,5 +68,15 @@ FetchContent_MakeAvailable(Catch2)
 #   add_subdirectory(${catch2_SOURCE_DIR} ${catch2_BINARY_DIR})
 # endif()
 
-add_executable(app_tests app/tests/test.cpp)
+add_executable(app_tests 
+app/tests/test.cpp
+app/tests/Sqlite3ErrorCodesTests.hpp
+app/Sqlite3ErrorCodes.cpp)
+
+target_include_directories(app_tests
+  PRIVATE
+  app/tests
+  app
+)
+
 target_link_libraries(app_tests Catch2::Catch2)

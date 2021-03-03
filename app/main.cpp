@@ -8,16 +8,14 @@ using namespace std;
 
 static int callback( void* NotUsed, int argc, char** argv, char** azColName ) {
     for ( int i = 0; i < argc; ++i ) {
-        std::cout << azColName[ i ] << " = " << ( argv[ i ] ? argv[ i ] : "NULL" )
-             << endl;
+        std::cout << azColName[ i ] << " = " << ( argv[ i ] ? argv[ i ] : "NULL" ) << endl;
     }
     return 0;
 }
 
 int main( int argc, char* argv[] ) {
-    Sqlite3Manager manager(
-        []( const std::string entry ) { std::cout << entry << '\n'; } );
-    
+    Sqlite3Manager manager( []( const std::string entry ) { std::cout << entry << '\n'; } );
+
     manager.connection( "comics.db" );
     manager.execute( "CREATE TABLE t(x INTEGER PRIMARY KEY ASC, y, z);" );
 
