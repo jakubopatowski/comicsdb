@@ -14,9 +14,10 @@ static int callback( void* NotUsed, int argc, char** argv, char** azColName ) {
 }
 
 int main( int argc, char* argv[] ) {
-    Sqlite3Manager manager( []( const std::string entry ) { std::cout << entry << '\n'; } );
+    Sqlite3Manager manager( "file:comics.db",
+                            []( const std::string entry ) { std::cout << entry << '\n'; } );
 
-    manager.connection( "comics.db" );
+    manager.connection();
     manager.execute( "CREATE TABLE t(x INTEGER PRIMARY KEY ASC, y, z);" );
 
     for ( int i = 0; i < argc; ++i ) {
