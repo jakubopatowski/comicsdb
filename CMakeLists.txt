@@ -52,6 +52,19 @@ target_sources(main
   "./app/Sqlite3ErrorCodes.cpp"
   )
 
+# JSON parser
+# https://github.com/nlohmann/json
+FetchContent_Declare(
+  nlohmann_json 
+  GIT_REPOSITORY https://github.com/nlohmann/json
+  GIT_TAG        v3.9.1)
+
+FetchContent_MakeAvailable(nlohmann_json)
+
+target_link_libraries(main
+  PRIVATE
+  nlohmann_json::nlohmann_json)
+
 # Tests
 # https://github.com/catchorg/Catch2/blob/devel/docs/tutorial.md#top
 FetchContent_Declare(

@@ -1,0 +1,21 @@
+{
+    "table":{
+        "id":{
+            "type": "int",
+            "primary_key": "true",
+            "nullable": "false"
+        },
+        "name":{
+            "type": "string",
+            "nullable": "false"
+        },
+        "age":{
+            "type": "int",
+            "nullable": "false"
+        },
+        "address":{
+            "type": "string",
+            "nullable": "true"
+        }
+    }
+}

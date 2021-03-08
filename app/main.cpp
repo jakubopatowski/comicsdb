@@ -4,7 +4,10 @@
 #include <sqlite3.h>
 #include <string>
 #include <vector>
+#include <nlohmann/json.hpp>
+
 using namespace std;
+using json = nlohmann::json;
 
 static int callback( void* NotUsed, int argc, char** argv, char** azColName ) {
     for ( int i = 0; i < argc; ++i ) {
