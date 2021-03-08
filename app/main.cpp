@@ -15,10 +15,12 @@ static int callback( void* NotUsed, int argc, char** argv, char** azColName ) {
 
 int main( int argc, char* argv[] ) {
     Sqlite3Manager manager( "file:comics.db",
-                            []( const std::string entry ) { std::cout << entry << '\n'; } );
+                            []( const std::string& entry ) { std::cout << entry << '\n'; } );
 
-    manager.connection();
-    manager.execute( "CREATE TABLE t(x INTEGER PRIMARY KEY ASC, y, z);" );
+    manager.open_db();
+    manager.execute( "CREATE TABLE t(x INTEGER PRIMARY KEY ASC, integer y,  integer z);" );
+    manager.execute( "insert into t values(1,1,1);" );
+    manager.close_db();
 
     for ( int i = 0; i < argc; ++i ) {
         std::cout << argv[ i ] << endl;

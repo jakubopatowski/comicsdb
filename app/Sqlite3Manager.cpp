@@ -4,7 +4,7 @@
 
 void Sqlite3Manager::sqlite3_deleter::operator()( sqlite3* db ) { sqlite3_close_v2( db ); }
 
-int Sqlite3Manager::connection() {
+int Sqlite3Manager::open_db() {
     if ( !m_db ) {
         m_db = make_unique_connection();
     }
@@ -32,5 +32,8 @@ int Sqlite3Manager::execute( const std::string& sql ) {
         m_log( "SQL error: " + std::string( Sqlite3ErrorCodes::statusToStr( m_executeStatus ) ) );
         sqlite3_free( m_errorMsg );
     }
+
     return m_executeStatus;
 }
+
+int Sqlite3Manager::close_db() { return sqlite3_close_v2( &(*m_db) ); }

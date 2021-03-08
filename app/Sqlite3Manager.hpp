@@ -5,13 +5,14 @@
 struct sqlite3;
 
 class Sqlite3Manager : public IDatabaseManager {
-    using Log = std::function< void( std::string ) >;
+    using Log = std::function< void( const std::string& ) >;
 
 public:
-    Sqlite3Manager( const std::string& db_name, const Log& log )
+    Sqlite3Manager( const std::string& db_name, Log log )
         : m_db_name( db_name ), m_connectionStatus( -1 ), m_executeStatus( -1 ), m_log( log ){};
-    virtual int connection();
-    virtual int execute( const std::string& sql );
+    int open_db() override;
+    int close_db() override;
+    int execute( const std::string& sql ) override;
 
 private:
     struct sqlite3_deleter {
@@ -24,6 +25,6 @@ private:
     unique_sqlite3 m_db;
     int m_connectionStatus;
     int m_executeStatus;
-    const Log& m_log;
+    Log m_log;
     const std::string m_db_name;
 };
