@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Sqlite3ErrorCodes.hpp"
 #include <catch2/catch.hpp>
 

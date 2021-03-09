@@ -1,4 +1,5 @@
 #include "Sqlite3Manager.hpp"
+#include "ORMManager.hpp"
 #include <iostream>
 #include <memory>
 #include <sqlite3.h>
@@ -20,10 +21,15 @@ int main( int argc, char* argv[] ) {
     Sqlite3Manager manager( "file:comics.db",
                             []( const std::string& entry ) { std::cout << entry << '\n'; } );
 
+    ORMManager orm;
+    orm.ParseFile( "test.json" );
+
     manager.open_db();
     manager.execute( "CREATE TABLE t(x INTEGER PRIMARY KEY ASC, integer y,  integer z);" );
     manager.execute( "insert into t values(1,1,1);" );
     manager.close_db();
+
+
 
     for ( int i = 0; i < argc; ++i ) {
         std::cout << argv[ i ] << endl;

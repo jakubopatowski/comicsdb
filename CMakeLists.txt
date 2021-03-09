@@ -50,6 +50,8 @@ target_sources(main
   "./app/Sqlite3Manager.cpp"
   "./app/Sqlite3ErrorCodes.hpp"
   "./app/Sqlite3ErrorCodes.cpp"
+  "./app/ORMManager.hpp"
+  "./app/ORMManager.cpp"
   )
 
 # JSON parser

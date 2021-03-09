@@ -1,3 +1,5 @@
+#pragma once
+
 #include "IDatabaseManager.hpp"
 #include <functional>
 #include <memory>

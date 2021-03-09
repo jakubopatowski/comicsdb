@@ -1,21 +1,46 @@
-{
-    "table":{
-        "id":{
-            "type": "int",
-            "primary_key": "true",
-            "nullable": "false"
-        },
-        "name":{
-            "type": "string",
-            "nullable": "false"
-        },
-        "age":{
-            "type": "int",
-            "nullable": "false"
-        },
-        "address":{
-            "type": "string",
-            "nullable": "true"
-        }
+    {
+        "tables": [
+            {
+                "name": "Osoba",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "int",
+                        "primary_key": true,
+                        "nullable": false
+                    },
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "nullable": false
+                    },
+                    {
+                        "name": "age",
+                        "type": "int",
+                        "nullable": false
+                    },
+                    {
+                        "name": "address",
+                        "type": "string",
+                        "nullable": true
+                    }
+                ]
+            },
+            {
+                "name": "Przedmiot",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "int",
+                        "primary_key": true,
+                        "nullable": false
+                    },
+                    {
+                        "name": "przedmiot",
+                        "type": "string",
+                        "nullable": false
+                    }
+                ]
+            }
+        ]
     }
-}
