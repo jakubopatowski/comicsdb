@@ -1,8 +1,8 @@
 #pragma once
 
+#include <nlohmann/json.hpp>
 #include <string>
 #include <vector>
-#include <nlohmann/json.hpp>
 
 using nlohmann::json;
 
@@ -20,9 +20,10 @@ struct Table {
     std::vector< Field > fields;
 };
 
-void to_json( json& j, const Field& f ) {
-    j = json{ { "type", f.type }, { "primary_key", f.primary_key }, { "nullable", f.nullable } };
-}
+void to_json( json& j, const Field& f );
+void from_json( const json& j, Field& f );
+void to_json( json& j, const Table& t );
+void from_json( const json& j, Table& t );
 
 } // namespace orm
 

@@ -4,6 +4,29 @@
 
 using json = nlohmann::json;
 
+void orm::to_json( json& j, const Field& f ) {
+    j = json{ { "name", f.name },
+              { "type", f.type },
+              { "primary_key", f.primary_key },
+              { "nullable", f.nullable } };
+}
+
+void orm::from_json( const json& j, Field& f ) {
+    j.at( "name" ).get_to( f.name );
+    j.at( "type" ).get_to( f.type );
+    j.at( "primary_key" ).get_to( f.primary_key );
+    j.at( "nullable" ).get_to( f.nullable );
+}
+
+void orm::to_json( json& j, const Table& t ) {
+    j = json{ { "name", t.name }, { "fields", t.fields } };
+}
+
+void orm::from_json( const json& j, Table& t ) {
+    j.at( "name" ).get_to( t.name );
+    auto tmp = j.at( "fields" );// .get_to( t.fields );
+}
+
 int ORMManager::ParseFile( const std::string& file_path ) {
     std::fstream fileStream;
     fileStream.open( file_path );
@@ -12,19 +35,8 @@ int ORMManager::ParseFile( const std::string& file_path ) {
     }
 
     json j;
-    fileStream >> j;
+    auto db = j.get< orm::Table >();
 
-    for( auto table_data: j[0]["tables"] ) {
-        Table table;
-        table.name = table_data[ "name" ];
-        for( auto field_data : table_data[ "fields" ] ) {
-            Field field;
-            field.name = field_data[ "name" ];
-            field.type = field_data[ "type" ];
-            field.is_nullable = field_data[ "nullable" ];
-            field.primary_key = field_data[ "primary_key" ];
-        }
-    }
     int result = 0;
     return result;
 }
