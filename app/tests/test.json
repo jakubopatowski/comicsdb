@@ -1,4 +1,6 @@
-    {
+{
+    "database": {
+        "name": "comicsdb",
         "tables": [
             {
                 "name": "Osoba",
@@ -44,3 +46,4 @@
             }
         ]
     }
+}
