@@ -52,6 +52,8 @@ target_sources(main
   "./app/Sqlite3ErrorCodes.cpp"
   "./app/ORMManager.hpp"
   "./app/ORMManager.cpp"
+  "./app/DbDefinition.hpp"
+  "./app/DbDefinition.cpp"
   "./app/tools.hpp"
   )
 
